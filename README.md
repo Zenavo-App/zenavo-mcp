@@ -84,7 +84,8 @@ changed this code. On top of that, zenavo-mcp:
 
 - never shows configuration values to the model. `list_env` returns names; `set_env` takes a value and never echoes it.
   Logs come from the server with the project's variable values already replaced.
-- marks logs and job output as untrusted data, so text a service prints cannot pose as instructions to the agent;
+- marks logs and job output as untrusted data, which makes it much less likely (though not impossible) that text a
+  service prints is taken as instructions by the agent;
 - talks only to the control plane you signed in to, over HTTPS (plain HTTP only for `localhost`), and never follows
   redirects, so the key cannot be sent anywhere else;
 - reads its key from its own file or from `ZENAVO_MCP_TOKEN`, never the Zenavo CLI's `ZENAVO_TOKEN`, so a CLI key in
